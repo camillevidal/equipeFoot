@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "equipeFoot": {
+    "tp-article": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/equipeFoot",
+            "outputPath": "dist/tp-article",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -63,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "equipeFoot:build"
+            "browserTarget": "tp-article:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "equipeFoot:build:production"
+              "browserTarget": "tp-article:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "equipeFoot:build"
+            "browserTarget": "tp-article:build"
           }
         },
         "test": {
@@ -89,6 +90,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -111,15 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "equipeFoot:serve"
+            "devServerTarget": "tp-article:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "equipeFoot:serve:production"
+              "devServerTarget": "tp-article:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "equipeFoot"
+    }
+  },
+  "defaultProject": "tp-article"
 }

@@ -1,54 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatSliderModule } from '@angular/material/slider';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { HeaderComponent } from './header/header.component';
-import { ListeJoueurComponent } from './liste-joueur/liste-joueur.component';
-import { FicheJoueurComponent } from './fiche-joueur/fiche-joueur.component';
-import { AjoutJoueurComponent } from './ajout-joueur/ajout-joueur.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatDatepickerModule,MatNativeDateModule,MatFormFieldModule,MatInputModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar'; 
-import {MatButtonModule} from '@angular/material/button';
-import { MatIconModule } from "@angular/material/icon";
-import { MatMenuModule} from '@angular/material/menu';
-import { EquipesComponent } from './equipes/equipes.component';
-import { JoueursComponent } from './joueurs/joueurs.component';
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import { CustomPipePipe } from './custom-pipe.pipe';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    ListeJoueurComponent,
-    FicheJoueurComponent,
-    AjoutJoueurComponent,
-    EquipesComponent,
-    JoueursComponent,
-   
+    FormulaireComponent,
+    CustomPipePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatNativeDateModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatSliderModule,
-    MatToolbarModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    FormsModule,
     MatButtonModule,
-    MatMenuModule,
-   
- 
-    
+    MatInputModule,
   ],
-  providers: [MatDatepickerModule],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

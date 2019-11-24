@@ -1,0 +1,74 @@
+<h2>Ajout joueur de foot</h2>
+<br />
+<form [formGroup]="model" style="padding-left: 5%">
+  <h3>Nom du joueur</h3>
+  <mat-form-field style="padding:10px ;border : 1px solid black; border-radius: 10px">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom" placeholder="Nom" />
+    <mat-error *ngIf="showErrorRequiredNom()">
+      Le nom est obligatoire
+    </mat-error>
+  </mat-form-field>
+  <h3>Prénom du joueur</h3>
+  <mat-form-field style="padding:10px ;border : 1px solid black; border-radius: 10px">
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="prenom" placeholder="Prénom" />
+    <mat-error *ngIf="showErrorRequiredPrenom()">
+      Le prénom est obligatoire
+    </mat-error>
+  </mat-form-field>
+  <h3>Age du joueur</h3>
+  <mat-form-field style="padding:10px ;border : 1px solid black; border-radius: 10px">
+    <mat-label>Age</mat-label>
+    <input matInput formControlName="age" placeholder="Age" />
+    <mat-error *ngIf="showErrorRequiredAge()">
+      L'age est obligatoire
+    </mat-error>
+  </mat-form-field>
+  <h3>Date de naissance du joueur</h3>
+  <mat-form-field style="padding:10px ;border : 1px solid black; border-radius: 10px">
+    <mat-label>Date de naissance</mat-label>
+    <input matInput formControlName="ddn" placeholder="Date de naissance" />
+    <mat-error *ngIf="showErrorRequiredDdn()">
+      La date de naissance est obligatoire
+    </mat-error>
+  </mat-form-field>
+  <h3>Temps de jeu</h3>
+  <mat-form-field style="padding:10px ;border : 1px solid black; border-radius: 10px">
+    <mat-label>Temps de jeu</mat-label>
+    <input matInput formControlName="tempsJeu" placeholder="Temps de jeu" />
+    <mat-error *ngIf="showErrorRequiredTdj()">
+      Le temps de jeu est obligatoire
+    </mat-error>
+  </mat-form-field>
+  <h3>Nombre de buts</h3>
+  <mat-form-field style="padding:10px ;border : 1px solid black; border-radius: 10px">
+    <mat-label>Nombre de buts</mat-label>
+    <input matInput formControlName="nbBut" placeholder="Nombre de buts"/>
+    <mat-error *ngIf="showErrorRequiredNbButs()">
+      Le nombre de but est obligatoire
+    </mat-error>
+  </mat-form-field>
+  <div style="display: block">
+    <div style="display: inline-flex">
+      <h3 style="padding-right: 30px">Club(s) fréquenté(s)</h3>
+      <button (click)="addClub()" mat-mini-fab color="accent"  style="margin-top: 10px">+</button>
+    </div>
+  </div>
+  <div formArrayName="clubs">
+    <div *ngFor="let c of clubForm.controls, let i = index" [formGroupName]="i">
+      <mat-form-field style="padding:10px ;border : 1px solid black; border-radius: 10px">
+        <mat-label>Club</mat-label>
+        <input matInput formControlName="club" placeholder="Club(s)">
+      </mat-form-field>
+    </div>
+  </div>
+  <button (click)="addJoueur()" mat-raised-button color="accent" style="margin-top:10px" [disabled]="model.invalid">Ajouter</button>
+  <div>
+    <div *ngFor="let j of this.joueurs">
+      <ul>
+        <li>{{j | customPipe}}</li>
+      </ul>
+    </div>
+  </div>
+</form>
